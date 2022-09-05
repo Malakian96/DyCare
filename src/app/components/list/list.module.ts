@@ -11,6 +11,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select'
+import { ElevationDirective } from "src/app/directives/elevation.directive";
 
 const exampleRoutes: Route[] = [
   {
@@ -22,6 +23,7 @@ const exampleRoutes: Route[] = [
 @NgModule({
   declarations: [
       ListComponent,
+      ElevationDirective
   ],
   imports     : [
       RouterModule.forChild(exampleRoutes),
@@ -34,7 +36,7 @@ const exampleRoutes: Route[] = [
       FormsModule,
       MatInputModule,
       MatSelectModule,
-      ReactiveFormsModule
+      ReactiveFormsModule,
     ],
   providers: [
     ApiService

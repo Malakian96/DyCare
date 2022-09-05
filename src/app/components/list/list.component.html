@@ -2,6 +2,8 @@
     <mat-label>Busqueda</mat-label>
     <input matInput placeholder="Ej. Cuello" [(ngModel)]="searchTerm" (ngModelChange)="search()">
   </mat-form-field>
+
+  <div class="filters">
     <mat-form-field appearance="fill">
       <mat-label>Joints</mat-label>
       <mat-select [(ngModel)]="jointTerm" (ngModelChange)="search()" multiple>
@@ -27,10 +29,11 @@
       <mat-option *ngFor="let tool of tools" [value]="tool">{{tool.name}}</mat-option>
     </mat-select>
   </mat-form-field>
+  </div>
 
 <div class="list">
   <ng-container *ngFor="let exercise of exercises">
-    <mat-card class="card">
+    <mat-card class="card" appElevation (click)="goToDetail(exercise.id)">
       <mat-card-header>
         <mat-card-title>{{ exercise.name }}</mat-card-title>
         <mat-card-subtitle>{{ exercise.joint }}</mat-card-subtitle>
