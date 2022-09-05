@@ -22,7 +22,7 @@ export class ApiService {
   getSignals(): Promise<Signal>{
     return fetch(`${this.apiRoot}/signals`).then(response => response.json());
   }
-  getExercises(): Promise<Exercise>{
+  getExercises(): Promise<Exercise[]>{
     return fetch(`${this.apiRoot}/exercises`).then(response => response.json());
   }
   getExercisesById(id: string): Promise<Exercise[]>{

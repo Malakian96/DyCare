@@ -1,1 +1,31 @@
-<p>list works!</p>
+<div class="list">
+  <ng-container *ngFor="let exercise of exercises">
+    <mat-card class="card">
+      <mat-card-header>
+        <mat-card-title>{{ exercise.name }}</mat-card-title>
+        <mat-card-subtitle>{{ exercise.joint }}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="{{ exercise.img }}">
+      <mat-card-content>
+        <div class="content">
+          <mat-chip-list>
+            <ng-container *ngFor="let tool of exercise.tools">
+              <mat-chip>{{ tool }}</mat-chip>
+            </ng-container>
+          </mat-chip-list>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button (click)="goToDetail(exercise.id)" mat-menu-item>
+            <mat-icon >edit</mat-icon>
+            <span>Editar</span>
+          </button>
+        </mat-menu>
+      </mat-card-actions>
+    </mat-card>
+  </ng-container>
+</div>
