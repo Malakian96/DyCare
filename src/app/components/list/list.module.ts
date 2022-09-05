@@ -8,7 +8,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-
+import { FormsModule } from "@angular/forms";
+import { MatInputModule } from '@angular/material/input';
 
 const exampleRoutes: Route[] = [
   {
@@ -29,6 +30,8 @@ const exampleRoutes: Route[] = [
       MatButtonModule,
       MatIconModule,
       MatMenuModule,
+      FormsModule,
+      MatInputModule
     ],
   providers: [
     ApiService
