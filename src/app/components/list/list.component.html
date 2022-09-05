@@ -2,6 +2,31 @@
     <mat-label>Busqueda</mat-label>
     <input matInput placeholder="Ej. Cuello" [(ngModel)]="searchTerm" (ngModelChange)="search()">
   </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Joints</mat-label>
+      <mat-select [(ngModel)]="jointTerm" (ngModelChange)="search()" multiple>
+        <mat-select-trigger>
+          {{jointTerm?.[0]?.name || ''}}
+          <span *ngIf="(jointTerm?.length || 0) > 1" class="example-additional-selection">
+          (+{{(jointTerm.length || 0) - 1}} {{jointTerm.length === 2 ? 'otro' : 'otros'}})
+        </span>
+      </mat-select-trigger>
+      <mat-option *ngFor="let joint of joints" [value]="joint">{{joint.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Tools</mat-label>
+    <mat-select [(ngModel)]="toolTerm" (ngModelChange)="search()" multiple>
+      <mat-select-trigger>
+        {{toolTerm?.[0]?.name || ''}}
+        <span *ngIf="(toolTerm?.length || 0) > 1" class="example-additional-selection">
+          (+{{(toolTerm?.length || 0) - 1}} {{toolTerm?.length === 2 ? 'otro' : 'otros'}})
+        </span>
+      </mat-select-trigger>
+      <mat-option *ngFor="let tool of tools" [value]="tool">{{tool.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
 
 <div class="list">
   <ng-container *ngFor="let exercise of exercises">
