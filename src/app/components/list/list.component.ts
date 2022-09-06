@@ -54,13 +54,13 @@ export class ListComponent implements OnInit {
     this.exercises = [...this.allExercises];
 
     if(jointIds?.length > 0)
-    this.exercises = this.allExercises.filter(exercise => jointIds.includes(exercise.joint))
+      this.exercises = this.allExercises.filter(exercise => jointIds.includes(exercise.joint));
 
     const toolIds = this.toolTerm?.map(tool => tool.id);
     if(toolIds?.length > 0)
-      this.exercises =  this.exercises.filter(e => e.tools.every((element)=> toolIds.includes(element)))
+      this.exercises = this.exercises.filter(e => e.tools.every((element)=> toolIds.includes(element)));
 
-    this.exercises = this.exercises?.filter(exercise => exercise.name.toLocaleLowerCase().includes(this.searchTerm.toLocaleLowerCase()))
+    this.exercises = this.exercises?.filter(exercise => exercise.name.toLocaleLowerCase().includes(this.searchTerm.toLocaleLowerCase()));
   }
 
   goToDetail(id: string): void{
