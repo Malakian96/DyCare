@@ -1,1 +1,43 @@
-<p>detail works!</p>
+<form [formGroup]="exerciseForm" class="form" (submit)="test()">
+  <div>
+    <mat-form-field appearance="outline" >
+      <mat-label>Name</mat-label>
+      <input type="text" matInput [formControlName]="'name'">
+    </mat-form-field>
+    <mat-form-field appearance="outline" >
+        <mat-label>Joints</mat-label>
+        <mat-select [formControlName]="'joint'">
+        <mat-option *ngFor="let joint of joints" [value]="joint.id">{{joint.name}}</mat-option>
+      </mat-select>
+      <!-- <mat-label>Joint</mat-label>
+      <input type="text" matInput [formControlName]="'joint'"> -->
+    </mat-form-field>
+    <mat-form-field appearance="outline" >
+      <mat-label>Tool</mat-label>
+      <mat-select [formControlName]="'tools'" multiple>
+        <mat-option *ngFor="let tool of tools" [value]="tool.id">{{tool.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+      <form formGroupName="signal">
+        <mat-form-field appearance="outline" >
+          <mat-label>Name</mat-label>
+          <input type="text" matInput [formControlName]="'name'">
+        </mat-form-field>
+        <mat-form-field appearance="outline" >
+          <mat-label>Min</mat-label>
+          <input type="number" (keyup)="calculateRom()" matInput [formControlName]="'min'">
+        </mat-form-field>
+        <mat-form-field appearance="outline" >
+          <mat-label>Max</mat-label>
+          <input type="number" (keyup)="calculateRom()" matInput [formControlName]="'max'">
+        </mat-form-field>
+        <mat-form-field appearance="outline" >
+          <mat-label>Rom</mat-label>
+          <input type="number" matInput [formControlName]="'rom'">
+        </mat-form-field>
+      </form>
+      <button mat-raised-button color="primary" [disabled]="exerciseForm.invalid">Guardar</button>
+
+</form>
