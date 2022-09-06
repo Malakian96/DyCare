@@ -25,7 +25,7 @@ export class ApiService {
   getExercises(): Promise<Exercise[]>{
     return fetch(`${this.apiRoot}/exercises`).then(response => response.json());
   }
-  getExercisesById(id: string): Promise<Exercise[]>{
+  getExerciseById(id: string): Promise<Exercise>{
     return fetch(`${this.apiRoot}/exercises/${id}`).then(response => response.json());
   }
   updateExecise(id: string, body: any): Promise<Exercise> {
